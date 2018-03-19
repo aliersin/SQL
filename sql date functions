@@ -28,7 +28,41 @@ select CONVERT (int, '1234')
 
 select * from tbl_sikayet where CONVERT(date,sikayet_tarihi)=CONVERT(date,GETDATE()) /*GETDATE şimdiki zaman*/
 
+getutcdate
+
+select YEAR (GETDATE())
+
+select * from tbl_sikayet where year (sikayet_tarihi)= YEAR(getdate()) 
+
+select * from tbl_yolcu where year (dogum_tarihi)= YEAR(getdate()) 
+
+select YEAR(getdate())- YEAR(dogum_tarihi) from tbl_yolcu
+
+select * from tbl_yolcu where day(dogum_tarihi) =DAY(GETDATE())
+
+select DATEPART(SECOND,GETDATE())
+
+select DATEPART(MONTH,GETDATE())
+
+select DATEPART(MILLISECOND,GETDATE())
+
+select CONVERT(nvarchar, DATEPART(HOUR,GETDATE()) +':' + DATEPART(MINUTE,GETDATE())) /*Hata verdi*/
+
+set language turkish select DATENAME(dw,getdate() ) 
+
+select * from tbl_vardiya where DATENAME(dw,GETDATE())='pazartesi'
 
 
+select DATENAME(dw,tarih),* from tbl_vardiya where DATENAME(dw,GETDATE())='pazartesi' 
+
+set language turkish select * from tbl_yolcu where DATENAME(dw,dogum_tarihi)='salı'
+
+select DATEPART(YEAR,GETDATE())-DATEPART(YEAR,dogum_tarihi) as yasi,* from tbl_yolcu order by yasi desc 
+
+select count(*) from tbl_vardiya where YEAR(tarih)='2017' and MONTH(tarih)='02'/* EKRAN ALINTISI ARACI */
+
+SELECT * FROM  tbl_vardiya where day(tarih)='15' and DATEPART(HOUR,baslama_saati)='13'
+
+select * from tbl_vardiya where day(tarih) between'15' and '20' and datepart(hour,baslama_saati)='05'
 
 

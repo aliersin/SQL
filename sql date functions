@@ -1,0 +1,34 @@
+select right(yolcu_tc,4) + left(adi_soyadi,3) from tbl_yolcu
+
+select QUOTENAME( REPLICATE( RIGHT(surucu_sicil,2),3)) from tbl_surucu 
+
+select ROUND (sqrt (SQUARE(4)+SQUARE(2)),2)
+
+select * from tbl_mahalle where mahalle like '% köy%' order by mahalle desc
+
+select ROUND( sqrt (len(marka)*12),2) from tbl_vasita where model='2015'
+
+
+select * from tbl_yolcu where bakiye between 20 and 40 order by dogum_tarihi
+
+
+select COUNT(*) from tbl_durak where durak_adi like'%cadde%'
+
+
+select * from tbl_yolcu where limit='0' and bakiye='0' 
+
+
+select COUNT (*) from tbl_sikayet where (sikayet like '%kavga%' or sikayet like '%tartışma%') and (surucu_id=10)
+
+------------------TARİHSEL FONKSİYONLAR------------------------
+
+select * from tbl_yolcu where dogum_tarihi= CONVERT(date,GETDATE())
+
+select CONVERT (int, '1234') 
+
+select * from tbl_sikayet where CONVERT(date,sikayet_tarihi)=CONVERT(date,GETDATE()) /*GETDATE şimdiki zaman*/
+
+
+
+
+
